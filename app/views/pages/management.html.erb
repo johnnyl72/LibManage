@@ -1,0 +1,32 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Management</h1>
+        <p class="lead">Welcome to the management page for the Library.</p>
+    </div>
+</div>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Checkout and manage books.</p>
+            <%= link_to "Point of Sale", pos_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Create and manage newsletters</p>
+            <%= link_to "News", news_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Order new books</p>
+            <%= link_to "Purchasing", purchasing_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Manage books</p>
+            <%= link_to "Books", books_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+</div>
