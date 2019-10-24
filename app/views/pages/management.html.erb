@@ -2,6 +2,11 @@
     <div class="container">
         <h1 class="display-4">Management</h1>
         <p class="lead">Welcome to the management page for the Library.</p>
+        <% if user_signed_in? %>
+            <p>
+                You are a <%= current_user.admin ? "ADMIN" : "USER" %>
+            </p>
+        <% end %>
     </div>
 </div>
 <div class="card-deck">
