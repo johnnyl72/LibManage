@@ -1,6 +1,7 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:index]
+  before_action :set_loan, only: [:show]
+  before_action :authorize_admin, only: [:new, :edit, :update, :destroy, :create]
   # GET /loans
   # GET /loans.json
   def index
