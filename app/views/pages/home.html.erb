@@ -1,6 +1,15 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %> </div>
+<% end %>
+
 <div class="center jumbotron">
   <h1>Welcome to LibManage</h1>
+  <% if current_user %>
+    # redirect somewhere
+  <% else %>
   <h2>
     <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-lg btn-primary" %>
   </h2>
+  <% end %>
+
 </div>
