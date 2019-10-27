@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, only: [:pos, :user_status]
+  # before_action :authenticate_admin, only: [:managerment]
   def home
   end
+
   def about
   end
 

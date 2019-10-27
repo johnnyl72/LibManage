@@ -13,6 +13,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -33,11 +34,12 @@
             </li>
             <li class="nav-item">
                 <% if user_signed_in? %>
-                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                  <li> <%= link_to "Profile", "#", class: "nav-link" %></li>
+                  <li> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
                 <% else %>
-                    <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+                  <li> <%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
                 <% end %>
-            </li>
+
           </ul>
         </div>
       </div>
@@ -48,13 +50,3 @@
         <%= yield %>
       </div>
       <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">RandyStinks &copy; Your Website 2019</p>
-    </div>
-  </footer>
-
-  </body>
-</html>
