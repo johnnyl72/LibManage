@@ -1,3 +1,7 @@
 class BookItem < ApplicationRecord
-  belongs_to :user
+
+  has_one :loan
+  has_one :user, through :loans
+  belongs_to :book
+
 end

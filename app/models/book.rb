@@ -1,6 +1,5 @@
 class Book < ApplicationRecord
 
-  belongs_to :book
-  has_one :book_item
+  has_many :book_items
 
 end
