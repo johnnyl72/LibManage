@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :loans
-  has_many :book_items, through: loans
+  has_many :loans, dependent: :destroy
+  has_many :book_items, through: :loans
 
 
 end

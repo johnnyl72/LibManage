@@ -20,9 +20,12 @@
         <td><%= book.isbn %></td>
         <td><%= book.copies %></td>
         <td><%= book.available %></td>
+        <td><%= image_tag book.image if book.image.attached? %> </td>
         <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if(current_user && current_user.admin?) %>
+          <td><%= link_to 'Edit', edit_book_path(book) %></td>
+          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

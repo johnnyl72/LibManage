@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     confirmations: 'users/confirmations',
     passwords: 'users/passwords',
-    registrations: 'users/registrations'}
+    registrations: 'users/registrations',
+    unlocks: 'users/unlocks' }
+    
   resources :loans
   resources :book_items
   resources :books
