@@ -4,7 +4,7 @@ class SearchController < ApplicationController
   def search
     if params.has_key?(:search)
       terms = search_params
-     unless terms[:isbn].blank?
+      unless terms[:isbn].blank?
         @results = Book.where(isbn: terms[:isbn]).limit(RESULTS_CONST)
       else
         # query_terms = Hash.new
