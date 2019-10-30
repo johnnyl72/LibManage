@@ -7,10 +7,6 @@ class SearchController < ApplicationController
       unless terms[:isbn].blank?
         @results = Book.where(isbn: terms[:isbn]).limit(RESULTS_CONST)
       else
-        # query_terms = Hash.new
-        # query_terms[:title] = terms[:title] unless terms[:title].blank?
-        # query_terms[:author] = terms[:author] unless terms[:author].blank?
-        # @results = Book.where(query_terms).limit(RESULTS_CONST)
         @results = Book.all.limit(RESULTS_CONST)
         @results = @results.where("title LIKE ?", "%#{terms[:title]}%") unless terms[:title].blank?
         @results = @results.where("author LIKE ?", "%#{terms[:author]}%") unless terms[:author].blank?
