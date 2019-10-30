@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'news', to: 'pages#news'
   get 'purchasing', to: 'pages#purchasing'
   get 'user_status', to: 'pages#user_status' # Temp
+  get 'search', to: 'search#search'
 end
