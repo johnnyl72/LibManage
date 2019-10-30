@@ -32,6 +32,7 @@ gem 'jquery-rails'
 
 group :production do
   gem 'pg'
+  gem "aws-sdk-s3", require: false
 end
 
 group :development, :test do
