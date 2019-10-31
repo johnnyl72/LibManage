@@ -14,7 +14,7 @@
         <% end %>
     </div>
     <div class="col-9">
-        <h2>Results</h2>
+        <h2>Results: <%= @results_count %></h2>
         <ul class="list-group">
             <% if @results.any? %>
                 <% @results.each do |result| %>
@@ -26,8 +26,18 @@
                     </li>
                 <% end %>
             <% else %>
-                <li class="list-group-item">NOTHING!</li>
+                <li class="list-group-item">No results found. Please try to change your query.</li>
             <% end %>
         </ul>
+        <div>
+            <%= "Page #{@page} of #{@pages}" %>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <% @pages.times do |i| %>
+                        <%= content_tag :li, (link_to i+1, @links[i], class: "page-link"), class: "page-item#{' active' if i+1 == @page}" %>
+                    <% end %>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
