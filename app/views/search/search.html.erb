@@ -10,7 +10,11 @@
                 <%= form.label :author %>
                 <%= form.text_field :author, class: "form-control", placeholder: "Book author", value: params.dig(:search, :author) %>
             </div>
-        <%= form.submit "Search", class: "btn btn-primary" %>
+            <div class="form-group">
+                <%= form.label :isbn, "ISBN" %>
+                <%= form.text_field :isbn, class: "form-control", placeholder: "Book ISBN", value: params.dig(:search, :isbn) %>
+            </div>
+            <%= form.submit "Search", class: "btn btn-primary" %>
         <% end %>
     </div>
     <div class="col-9">
