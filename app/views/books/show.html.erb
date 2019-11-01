@@ -8,6 +8,11 @@
 <p> <%= image_tag @book.image if @book.image.attached? %> </p>
 
 <p>
+    <strong>Author:</strong>
+    <%= @book.author %>
+</p>
+
+<p>
   <strong>Isbn:</strong>
   <%= @book.isbn %>
 </p>
