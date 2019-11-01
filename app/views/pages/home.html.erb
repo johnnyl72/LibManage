@@ -1,15 +1,138 @@
 <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %> </div>
 <% end %>
+<html>
+  <head>
+    <title>LibManage</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-panels.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel-noscript.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style-desktop.css" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+  </head>
 
-<div class="center jumbotron">
-  <h1>Welcome to LibManage</h1>
-  <% if current_user %>
-    # redirect somewhere
-  <% else %>
-  <h2>
-    <%= link_to "Sign up now!", new_user_registration_path , class: "btn btn-lg btn-primary" %>
-  </h2>
-  <% end %>
-
-</div>
+  <body class ="homepage">
+    <!-- Banner -->
+  		<div id="banner">
+  			<div class="container">
+  			</div>
+  		</div>
+  	<!-- /Banner -->
+	<!-- Main -->
+    <div id ="page">
+      <!-- Extra -->
+  			<div id="marketing" class="container">
+  				<div class="row">
+  					<div class="3u">
+  						<section>
+  							<header>
+  								<h2>We're Thankful for You</h2>
+  							</header>
+  							<p class="subtitle">Volunteers, Friends, and Donors make a World of Difference </p>
+  							<p><a href="#"><img src="images/thankful.jpg" alt=""></a></p>
+  							<a href="#" class="button">More</a>
+  						</section>
+  					</div>
+  					<div class="3u">
+  						<section>
+  							<header>
+  								<h2>Latest book additions!</h2>
+  							</header>
+  							<p class="subtitle">Learn more about the latest and greatest book offerings! </p>
+  							<p><a href="#"><img src="images/latest.jpg" alt=""></a></p>
+  							<a href="#" class="button">More</a>
+  						</section>
+  					</div>
+  					<div class="3u">
+  						<section>
+  							<header>
+  								<h2>Community Involvement</h2>
+  							</header>
+  							<p class="subtitle">Find out ways to help volunteer and contribute to our library.</p>
+  							<p><a href="#"><img src="images/community.jpg" alt=""></a></p>
+  							<a href="#" class="button">More</a>
+  						</section>
+  					</div>
+  					<div class="3u">
+  						<section>
+  							<header>
+  								<h2>Latest Blog Posts</h2>
+  							</header>
+  							<p class="subtitle">Check out the latest blogs from our very own members!.</p>
+  							<p><a href="#"><img src="images/blog.jpg" alt=""></a></p>
+  							<a href="#" class="button">More</a>
+  						</section>
+  					</div>
+  				</div>
+  			</div>
+  			<!-- /Extra -->
+  			<!-- Main -->
+  			<div id="main" class="container">
+  				<div class="row">
+  					<div class="6u">
+  						<section>
+  							<header>
+  								<h2>FRIENDS OF THE LIBRARY</h2>
+  								<span class="byline">Spotlight of the Month</span>
+  							</header>
+                  <p>Libraries provide the energy that fuels the imagination; our volunteers open windows to the world and inspire us to explore, achieve, and contribute to improving our quality of life.  We thank all of you for your continual support, contribution, enthusiasm, dedication,  and passion that help us remain steadfast and purposefully driven with making a difference in the lives of others.</p>
+                  <p>Our dedicated volunteers are an integral part of LA County Library and are from all ages, backgrounds, skill sets, and phases of life. They assist library staff to extend the services and programs the Library can offer to the public. Our customers’ library experiences are much more enhanced because of the hundreds of volunteers who donate their time. There are a variety of volunteer opportunities, from helping to clean and sort library materials and setting up displays, to providing computer      and printing support to library customers. If you want to volunteer, get in touch with your local LA County Library location!</p>
+  							<a href="#" class="button">More Details</a>
+  						</section>
+  					</div>
+  					<div class="3u">
+  						<section class="sidebar">
+  							<header>
+  								<h2>Popular Books this Month</h2>
+  							</header>
+  							<ul class="style2">
+  								<li>
+  									<a href="#"><img src="images/img1.jpg" alt=""></a>
+  									<p>In an unnamed city, middle sister stands out for the wrong reasons.</p>
+  								</li>
+  								<li>
+  									<a href="#"><img src="images/img2.jpg" alt=""></a>
+  									<p>The dictionary doesn't contain every word. Gretel, a lexicographer by..</p>
+  								</li>
+  								<li>
+  									<a href="#"><img src="images/img3.jpg" alt=""></a>
+  									<p>A boldly and carefully executed and perfectly ragged..</p>
+  								</li>
+  								<li>
+  									<a href="#"><img src="images/img4.jpg" alt=""></a>
+  									<p>Pulitzer Prize for General Nonfiction... Explorer Griswold.</p>
+  								</li>
+  							</ul>
+  						</section>
+  					</div>
+  					<div class="3u">
+  						<section class="sidebar">
+  							<header>
+  								<h2>SITE INFO</h2>
+  							</header>
+  							<ul class="style1">
+  								<li><a href="#">Accessibility</a></li>
+  								<li><a href="#">Disclaimer</a></li>
+  								<li><a href="#">Language</a></li>
+  								<li><a href="#">Privacy Policy</a></li>
+  								<li><a href="#">Terms of payment</a></li>
+  							</ul>
+  						</section>
+  					</div>
+  				</div>
+  			</div>
+  			<!-- Main -->
+  		</div>
+  </body>
+</html>
