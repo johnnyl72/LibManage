@@ -21,6 +21,9 @@ class PagesController < ApplicationController
   def pos
   end
 
+  def shelving
+  end
+
   def news
   end
 
