@@ -26,7 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
+    @user = current_user
+    if(current_user.admin?)
     super
+    end
   end
 
   # GET /resource/cancel

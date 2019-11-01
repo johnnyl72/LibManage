@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
     unlocks: 'users/unlocks' }
-    
+
   resources :loans
   resources :book_items
   resources :books
