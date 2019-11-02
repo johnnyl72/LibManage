@@ -3,29 +3,33 @@
 <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
 <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
-<h2>Log in</h2>
+<section class="section">
+	<div class="container">
+		<div class="col-sm-12 centered">
+      <h2 style="padding: 30px 0px 0px 0px">Log In</h2>
+			<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			  <div class="field">
+			  	<div class="control">
+			    	<%= f.input :email, required: false, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+			    </div>
+			  </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+			  <div class="field">
+			  	<div class="control">
+			    <%= f.input :password, required: false, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+					</div>
+				</div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+				<div class="field">
+			  	<div class="control">
+			    <%= f.input :remember_me, wrapper: false, as: :boolean if devise_mapping.rememberable? %>
+			  	</div>
+				</div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+			  <%= f.button :submit, "Log in", class:"button is-outlined" %>
+			<% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
+</section>
