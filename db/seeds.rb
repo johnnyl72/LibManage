@@ -35,7 +35,9 @@ book_list = [
 ]
 
 book_list.each do |title, author|
-  book = Book.create(title: title, author: author, isbn: (rand(9999999999).to_s), copies: (rand(9) + 1))
-  book.available = book.copies - (rand(book.copies))
-  book.save
+  book = Book.create(title: title, author: author, isbn: (rand(9999999999).to_s))
+  # Create a random number of copies with a random status of either 0 or 1
+  rand(10).times do |i|
+    book.book_items.create(status: rand(2))
+  end
 end
