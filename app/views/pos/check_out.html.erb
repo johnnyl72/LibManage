@@ -1,0 +1,13 @@
+<div class="card">
+    <%= form_with url: checkout_path do |form| %>
+        <div>
+            <%= form.label :books, "BookItemIDs" %>
+            <%= form.text_area :books %>
+        </div>
+        <div>
+            <%= form.label :user, "UserID" %>
+            <%= form.text_field :user %>
+        </div>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</div>

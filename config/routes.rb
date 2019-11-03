@@ -17,4 +17,12 @@ Rails.application.routes.draw do
   get 'purchasing', to: 'pages#purchasing'
   get 'user_status', to: 'pages#user_status' # Temp
   get 'search', to: 'search#search'
+
+  get 'pos/pos', to: 'pos#pos'
+  get 'pos/shelving', to: 'pos#shelving', as: 'shelving'
+  get 'pos/returns', to: 'pos#returns', as: 'returns'
+  get 'pos/checkout', to: 'pos#check_out', as: 'checkout'
+  post 'pos/shelving', to: 'pos#shelving_submit'
+  post 'pos/returns', to: 'pos#returns_submit'
+  post 'pos/checkout', to: 'pos#check_out_submit'
 end

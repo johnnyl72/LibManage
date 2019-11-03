@@ -1,0 +1,9 @@
+<div class="card">
+    <%= form_with url: shelving_path do |form| %>
+        <div>
+            <%= form.label :books, "BookItemIds" %>
+            <%= form.text_area :books %>
+        </div>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</div>
