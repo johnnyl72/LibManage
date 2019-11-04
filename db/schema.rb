@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_213015) do
+ActiveRecord::Schema.define(version: 2019_11_04_194636) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -80,5 +80,5 @@ ActiveRecord::Schema.define(version: 2019_11_02_213015) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "book_items", "books"
-  add_foreign_key "loans", "books", column: "book_item_id"
+  add_foreign_key "loans", "book_items"
 end
