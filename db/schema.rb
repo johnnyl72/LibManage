@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2019_11_04_064620) do
   end
 
   create_table "loans", force: :cascade do |t|
-    t.integer "book_id", null: false
+    t.integer "book_item_id", null: false
     t.integer "user_id"
     t.datetime "due_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-     t.index ["book_id"], name: "index_loans_on_book_id"
+    t.index ["book_item_id"], name: "index_loans_on_book_item_id"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -92,5 +92,5 @@ ActiveRecord::Schema.define(version: 2019_11_04_064620) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "book_items", "books"
-  add_foreign_key "loans", "books"
+  add_foreign_key "loans", "books", column: "book_item_id"
 end

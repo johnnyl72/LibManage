@@ -1,3 +1,6 @@
-User#newsletter_mailer
+Dear Followers:
+Here are the following weekly news posts from LibManage!
 
-yuh yuh yuh
+<% @post.each do |post| %>
+<%= post.content %>
+<% end %>

@@ -6,9 +6,10 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.newsletter_mailer.subject
   #
   def newsletter_mailer
-    @newsletter = Newsletter.all
-    @post = Post.last
-    emails = @newsletter.collect(&:email).join(", ")
+    @subs = User.all
+    @post = Post.last(1)
+    emails = @subs.collect(&:email).join(", ")
     mail(to: emails, subject: "Hi, this is a test mail.")
   end
+
 end
