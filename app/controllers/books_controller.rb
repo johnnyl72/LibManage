@@ -13,6 +13,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @book_items = @book.book_items
+    @is_admin = current_user && current_user.admin?
   end
 
   # GET /books/new
