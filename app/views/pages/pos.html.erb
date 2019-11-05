@@ -1,23 +1,22 @@
 <h1>Point of Sale</h1>
-<div class="card-deck">
-    <div class="card">
-        <div class="card-body">
-            <p class="card-text">Check out books</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <p class="card-text">Return books</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <p class="card-text">Shelve books</p>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-body">
-            <p class="card-text">Pay fees</p>
-        </div>
+<br />
+<div class="container">
+  <div align= "center">
+
+      <div class="card w-75">
+        <%= link_to "Check out books", pos_checkout_path, class: "btn btn-light" %>
+      </div>
+
+      <div class="card w-75">
+        <%= link_to "Return books", pos_returns_path, class: "btn btn-light" %>
+      </div>
+
+      <div class="card w-75">
+        <%= link_to "Shelve books", pos_shelving_path, class: "btn btn-light" %>
+      </div>
+
+      <div class="card w-75">
+        <%= link_to "Pay fees", "#", class: "btn btn-light" %>
+      </div>
     </div>
 </div>
