@@ -12,18 +12,19 @@
       - Create
       - Update
       - Destroy
+    * CSS
 
 ## TBD:
     * User status page
     * Book Item Subsystem
-      * Taking out books
-      * Returning books
-      * Shelving books - mark bookItem status as proccessing/shelving
-      * Add new bookItem to user account
-      * Job for updating overdue loans - rake and cronjobs
+      - Taking out books
+      - Returning books
+      - Shelving books - mark bookItem status as proccessing/shelving
+      - Add new bookItem to user account
+      - Job for updating overdue loans - rake and cronjobs
     * Pay late fees on POS page
     * Email Subsystem
-    * CSS
+
     * Newsletter/ Cover
 
 ## Development Test Accounts

@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+admin = User.create(email: 'bob@example.com', password: 'secret')
+admin.admin = true
+admin.save
+
+10.times do |i|
+  User.create(email: Faker::Internet.email, password: 'not_secret')
+end
+
 # Generate Books with random ISBN and copies
 book_list = [
   ['Anna Karenina', 'Leo Tolstoy'],
@@ -36,8 +44,10 @@ book_list = [
 
 book_list.each do |title, author|
   book = Book.create(title: title, author: author, isbn: (rand(9999999999).to_s))
-  # Create a random number of copies with a random status of either 0 or 1
   rand(10).times do |i|
-    book.book_items.create(status: rand(2))
+    item = book.book_items.create()
+    if rand(10) > 5
+      Loan.create(book_item_id: item.id, user_id: rand(10), due_date: Time.now+rand(10).days)
+    end
   end
 end

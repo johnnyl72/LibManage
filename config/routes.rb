@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :newsletters
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     confirmations: 'users/confirmations',

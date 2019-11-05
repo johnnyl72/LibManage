@@ -1,0 +1,9 @@
+<p> Dear Followers: </p>
+<p> Here are the following weekly news posts from LibManage! </p>
+
+<br/>
+<table>
+  <% @post.each do |post| %>
+  <p><%= post.content %></p>
+  <% end %>
+</table>

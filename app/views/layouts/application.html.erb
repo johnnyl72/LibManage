@@ -42,7 +42,7 @@
             </li>
             <li class="nav-item">
                 <% if user_signed_in? %>
-                  <li> <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %></li>
+                  <li> <%= link_to "Profile", user_status_path, class: "nav-link" %></li>
                   <li> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
                 <% else %>
                   <li> <%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
@@ -52,9 +52,10 @@
         </div>
       </div>
     </nav>
-
+    <br />
     <!-- Page Content -->
       <div class="container">
         <%= yield %>
+        <br />
       </div>
       <!-- /.container -->
