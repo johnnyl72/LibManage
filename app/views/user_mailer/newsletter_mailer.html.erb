@@ -4,6 +4,6 @@
 <br/>
 <table>
   <% @post.each do |post| %>
-  <p><%= post.content %></p>
+  <p><%= h post.content %></p>
   <% end %>
 </table>

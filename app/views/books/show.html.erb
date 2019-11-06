@@ -39,6 +39,7 @@
                <th scope="col">Item Code</th>
                <th scope="col">Status</th>
                <th scope="col">Due Date</th>
+               <th scope="col">Add to cart</th>
                <%= content_tag :th, "Manage", scope: "col" if @is_admin %>
            </tr>
        </thead>
@@ -48,6 +49,13 @@
                    <th scope="row"><%= i.id %></th>
                    <th><%= i.status %></th>
                    <th><%= i.loan.due_date.strftime("%m/%d/%y") unless i.loan.nil? %></th>
+
+
+                   <% if current_user && (i.status == 'available') %>
+                      <th><%= link_to 'Add to cart', line_item_path(book_item_id: i), class: "btn btn-success btn-sm" %></th>
+                   <% else %>
+                      <th> </th>
+                   <% end %>
                    <% if @is_admin %>
                        <th><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></th>
                    <% end %>

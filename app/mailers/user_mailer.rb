@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def newsletter_mailer
     @subs = User.where(subscribed: true)
-    @post = Post.last(1)
+    @post = Post.last
     emails = @subs.collect(&:email).join(", ")
     mail(to: emails, subject: "Hi, this is a test mail.")
   end
