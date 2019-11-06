@@ -24,7 +24,7 @@
         <td scope="row"><%= book.isbn %></td>
         <td scope="row"><%= book.copies %></td>
         <td scope="row"><%= book.available %></td>
-        <td scope="row"><%= image_tag book.image if book.image.attached? %> </td>
+        <td scope="row"><%= book.image.attached? ? (image_tag book.image) : (image_tag "missing.png") %> </td>
         <td scope="row"><%= link_to 'Open', book %></td>
         <% if(current_user && current_user.admin?) %>
           <td><%= link_to 'Edit', edit_book_path(book) %></td>
