@@ -1,0 +1,15 @@
+input[type=text] {
+
+    padding: 12px 20px;
+    margin: 9px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: none;
+    width: 40%;
+    height:20%;
+    boredr:1px solid #7c7b7b;
+}
+input[type=text]:hover {
+	border:1px solid #000;
+	transition: 6s;
+}
