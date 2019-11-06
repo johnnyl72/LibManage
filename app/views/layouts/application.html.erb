@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>LibManage</title>
-<meta charset="utf-8">
-<%= csrf_meta_tags %>
-<%= csp_meta_tag %>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+    <title>LibManage</title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-<div class="container">
-<a class="navbar-brand" href="/">LibManage</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarResponsive">
-<ul class="navbar-nav ml-auto">
-<% if user_signed_in? && current_user.admin?%>
-<li class="nav-item">
-<%= link_to "Management", management_path , class: "nav-link" %>
-</li>
-<% end %>
-<li class="nav-item">
-<%= link_to "Library", books_path , class: "nav-link" %>
-</li>
-<li class="nav-item">
-<%= link_to "Search", search_path , class: "nav-link" %>
-</li>
-<li class="nav-item">
-<%= link_to "About", about_path , class: "nav-link" %>
-</li>
-<li class="nav-item">
-<% if user_signed_in? %>
-<li> <%= link_to "Profile", user_status_path, class: "nav-link" %></li>
-<li> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-<% else %>
-<li> <%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
-<% end %>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">LibManage</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <% if user_signed_in? && current_user.admin?%>
+                    <li class="nav-item">
+                        <%= link_to "Management", management_path , class: "nav-link" %>
+                    </li>
+                    <% end %>
+                    <li class="nav-item">
+                        <%= link_to "Library", books_path , class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Search", search_path , class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "About", about_path , class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <% if user_signed_in? %>
+                    <li> <%= link_to "Profile", user_status_path, class: "nav-link" %></li>
+                    <li> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                    <% else %>
+                    <li> <%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
+                    <% end %>
 
-</ul>
-</div>
-</div>
-</nav>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br />
+    <!-- Page Content -->
+    <div class="container">
+        <%= yield %>
+        <br />
+    </div>
+    <!-- /.container -->
 </body>
-<br />
-<!-- Page Content -->
-<div class="container">
-<%= yield %>
-<br />
-</div>
-<!-- /.container -->
+
 </html>
