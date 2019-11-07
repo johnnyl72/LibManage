@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   resources :newsletters
-  
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     confirmations: 'users/confirmations',
@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   get 'pos/shelving', to: 'pos#shelving', as: 'shelving'
   get 'pos/returns', to: 'pos#returns', as: 'returns'
   get 'pos/checkout', to: 'pos#check_out', as: 'checkout'
+  get 'pos/fees', to: 'pos#fees', as: 'fees'
   post 'pos/shelving', to: 'pos#shelving_submit'
   post 'pos/returns', to: 'pos#returns_submit'
   post 'pos/checkout', to: 'pos#check_out_submit'
+  post 'pos/fees', to: 'pos#fees_submit'
 end
