@@ -5,15 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Seeding database:"
 
+
+puts "Creating admin bob..."
 admin = User.create(email: 'bob@example.com', password: 'secret')
 admin.admin = true
 admin.save
 
+puts "Creating 10 fake users..."
 10.times do |i|
   User.create(email: Faker::Internet.email, password: 'not_secret')
 end
 
+puts "Creating some books and loans..."
 # Generate Books with random ISBN and copies
 book_list = [
   ['Anna Karenina', 'Leo Tolstoy'],
@@ -51,3 +56,5 @@ book_list.each do |title, author|
     end
   end
 end
+
+puts "Done."
