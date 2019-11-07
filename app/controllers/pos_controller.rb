@@ -1,5 +1,17 @@
 class PosController < ApplicationController
-  def pos
+  def fees
+    @users = User.where('debt > ?', 0).order(updated_at: :desc).limit(10)
+  end
+
+  def fees_submit
+    params.require([:user_id, :payment_amount])
+    user = User.find(params[:user_id])
+    amount = params[:payment_amount].to_d
+    if user.debt < amount
+      redirect_to fees_path, notice: "Failure: Payment greater than user debt."
+    end
+    user.decrement!(:debt, amount)
+    redirect_to fees_path, notice: "Updated user debt to #{user.debt}"
   end
 
   def shelving
