@@ -18,18 +18,9 @@
       - Returning books
       - Shelving books - mark bookItem status as proccessing/shelving
       - Add new bookItem to user account
+     * Book Item Subsystem
+      - Job for updating overdue loans - rake and cronjobs
+     * Pay late fees on POS page
 ## TBD:
     * [WIP] CSS
-    * Book Item Subsystem
-      - Job for updating overdue loans - rake and cronjobs
-    * Pay late fees on POS page
-    * [WIP] Email- Create ability to opt out of newsletter and signup
 
-## Development Test Accounts
-**ADMIN ACCOUNT**
-example@example.com
-foobar
-
-**GUEST ACCOUNT**
-guest@example.com
-foobar
