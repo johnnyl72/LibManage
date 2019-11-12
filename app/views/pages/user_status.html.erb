@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'forms' %>
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">Account Status</h1>
@@ -5,12 +7,19 @@
 </div>
 <div>
     <h4>Current Loans</h4>
-    <% current_user.loans.each do |loan| %>
-        <div>
-            <%= content_tag :h3, "Loan for book: #{loan.book_item.book.title}" %>
-            <%= content_tag :p, "Due: #{loan.due_date}" %>
-        </div>
-    <% end %>
+    <br> </br>
+    <table>
+        <tr>
+        <% current_user.loans.each do |loan| %>    
+                    <div>
+                        <%= content_tag :h3, "Loan for book: #{loan.book_item.book.title}" %>
+                        <%= content_tag :p, "Due: #{loan.due_date}" %>
+                    </div>
+                
+            
+        <% end %>
+        </tr>
+    </table>
 </div>
 <br />
 <%= link_to "Edit Account", edit_user_registration_path %>

@@ -2,7 +2,7 @@
     <%= form_with url: returns_path do |form| %>
         <div>
             <%= form.label :books, "BookItemIDs" %>
-            <%= form.text_area :books %>
+            <%= form.text_field :books %>
         </div>
         <%= form.submit "Submit", class: "btn btn-primary" %>
     <% end %>

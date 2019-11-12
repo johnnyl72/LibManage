@@ -1,65 +1,70 @@
 <p id="notice"><%= notice %></p>
+<div class = "continer">
+    <div class = "row">
+        <div class = "col">
+            <h4 style="padding: 30px 0px 15px 0px">
+    
+            <strong>Title:</strong>
+            <%= @book.title %>
+            </h4>
 
-<h4 style="padding: 30px 0px 15px 0px">
-  <strong>Title:</strong>
-  <%= @book.title %>
-</h4>
+            <p> <%= image_tag @book.image if @book.image.attached? %> </p>
 
-<p> <%= image_tag @book.image if @book.image.attached? %> </p>
+            <p>
+                <strong>Author:</strong>
+                <%= @book.author %>
+            </p>
 
-<p>
-    <strong>Author:</strong>
-    <%= @book.author %>
-</p>
+            <p>
+            <strong>Isbn:</strong>
+            <%= @book.isbn %>
+            </p>
 
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
+            <p>
+            <strong>Copies:</strong>
+            <%= @book.copies %>
+            </p>
 
-<p>
-  <strong>Copies:</strong>
-  <%= @book.copies %>
-</p>
-
-<p>
-  <strong>Available:</strong>
-  <%= @book.available %>
-</p>
-<% if @is_admin %>
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<% end %>
-<%= link_to 'Back', books_path %>
-
-<div>
-    <h4>Copies</h4>
-    <table class="table table-sm table-bordered">
-       <thead>
-           <tr>
-               <th scope="col">Item Code</th>
-               <th scope="col">Status</th>
-               <th scope="col">Due Date</th>
-               <%= content_tag :th, "Manage", scope: "col" if @is_admin %>
-           </tr>
-       </thead>
-       <tbody>
-           <% @book_items.each do |i| %>
-               <tr>
-                   <th scope="row"><%= i.id %></th>
-                   <th><%= i.status %></th>
-                   <th><%= i.loan.due_date.strftime("%m/%d/%y") unless i.loan.nil? %></th>
-                   <% if @is_admin %>
-                       <th><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></th>
-                   <% end %>
-               </tr>
-           <% end %>
-           <% if @is_admin %>
-               <tr>
-                   <th colspan="4">
-                       <%= button_to "Create new item", { controller: 'book_items', method: 'create', book_item: { book_id: @book.id } }, class: "btn btn-sm btn-primary" %>
-                   </th>
-               </tr>
-           <% end %>
-       </tbody>
-    </table>
+            <p>
+            <strong>Available:</strong>
+            <%= @book.available %>
+            </p>
+            <% if @is_admin %>
+            <%= link_to 'Edit', edit_book_path(@book) %> |
+            <% end %>
+            <%= link_to 'Back', books_path %>
+        </div>
+        <div class="col">
+                <h4>Copies</h4>
+                <table class="table table-sm table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Item Code</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Due Date</th>
+                        <%= content_tag :th, "Manage", scope: "col" if @is_admin %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @book_items.each do |i| %>
+                        <tr>
+                            <th scope="row"><%= i.id %></th>
+                            <th><%= i.status %></th>
+                            <th><%= i.loan.due_date.strftime("%m/%d/%y") unless i.loan.nil? %></th>
+                            <% if @is_admin %>
+                                <th><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></th>
+                            <% end %>
+                        </tr>
+                    <% end %>
+                    <% if @is_admin %>
+                        <tr>
+                            <th colspan="0">
+                                <%= button_to "Create new item", { controller: 'book_items', method: 'create', book_item: { book_id: @book.id } }, class: "btn btn-sm btn-primary" %>
+                            </th>
+                        </tr>
+                    <% end %>
+                </tbody>
+                </table>
+        </div>
+    </div>
 </div>
