@@ -1,4 +1,7 @@
 class PosController < ApplicationController
+  before_action :authenticate_user!, only: [:shelving, :returns, :check_out, :fees_submit]
+  before_action :authorize_admin, only: [:shelving, :returns, :check_out, :fees_submit]
+
   def fees
     @users = User.where('debt > ?', 0).order(updated_at: :desc).limit(10)
   end
