@@ -7,5 +7,8 @@ class User < ApplicationRecord
   has_many :loans, dependent: :destroy
   has_many :book_items, through: :loans
 
+  def id_f
+    "%06d" % id
+  end
 
 end

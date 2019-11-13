@@ -34,7 +34,7 @@
                 <% @users.each do |user| %>
                     <tr>
                         <th scope="row"><%= user.updated_at.strftime("%x %X") %></th>
-                        <%= content_tag :td, user.id %>
+                        <%= content_tag :td, user.id_f %>
                         <%= content_tag :td, user.email %>
                         <%= content_tag :td, number_to_currency(user.debt) %>
                     </tr>

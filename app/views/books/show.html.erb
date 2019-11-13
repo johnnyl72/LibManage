@@ -3,7 +3,7 @@
     <div class = "row">
         <div class = "col">
             <h4 style="padding: 30px 0px 15px 0px">
-    
+
             <strong>Title:</strong>
             <%= @book.title %>
             </h4>
@@ -48,7 +48,7 @@
                 <tbody>
                     <% @book_items.each do |i| %>
                         <tr>
-                            <th scope="row"><%= i.id %></th>
+                            <th scope="row"><%= i.id_f %></th>
                             <th><%= i.status %></th>
                             <th><%= i.loan.due_date.strftime("%m/%d/%y") unless i.loan.nil? %></th>
                             <% if @is_admin %>
