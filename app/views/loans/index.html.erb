@@ -15,7 +15,7 @@
   <tbody>
     <% @loans.each do |loan| %>
       <tr>
-        <td><%= loan.book_id %></td>
+        <td><%= loan.book_item_id %></td>
         <td><%= loan.user_id %></td>
         <td><%= loan.due_date %></td>
         <td><%= link_to 'Show', loan %></td>

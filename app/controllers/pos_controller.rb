@@ -14,7 +14,7 @@ class PosController < ApplicationController
       redirect_to fees_path, notice: "Failure: Payment greater than user debt."
     end
     user.decrement!(:debt, amount)
-    redirect_to fees_path, notice: "Updated user debt to #{user.debt}"
+    redirect_to fees_path, notice: "Updated #{user.email} debt to #{user.debt}"
   end
 
   def shelving

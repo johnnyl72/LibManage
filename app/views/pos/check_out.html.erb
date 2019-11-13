@@ -1,18 +1,37 @@
 <%= stylesheet_link_tag 'forms' %>
-
-<div class="card">
-    <%= form_with url: checkout_path do |form| %>  
-                <div>
-                    <%= form.label :books, "BookItemIDs" %>
-                    <%= form.text_field :books %>
-                </div>
-            
-                <div>
-                    <%= form.label :user, "UserID" %>
-                    <%= form.text_field :user %>
-                </div>
-         
-        <%= form.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
+<% if flash[:notice] %>
+<div class="alert alert-primary">
+    <%= flash[:notice] %>
 </div>
+<% end %>
+<div class="row">
+    <div class="col-8">
+        <h2>Book Checkout</h2>
 
+        <div class="card">
+            <div class="card-body">
+                <%= form_with url: checkout_path do |form| %>
+                    <div class="form-group">
+                        <%= form.label :books, "Item IDs:" %>
+                        <%= form.text_area :books, class: "form-control", placeholder: "<book> <book> <book>" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= form.label :user, "User ID:" %>
+                        <%= form.text_field :user, class: "form-control", placeholder: "<User ID>" %>
+                    </div>
+
+                    <%= form.submit "Submit", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <h5>Help</h5>
+        <p>
+            To check out a customer, input the IDs for the book in the top field. Then input the customer's ID from their library card into the second field. You can input multiple books at a time by putting spaces between the IDs.
+        </p>
+        <%= link_to "Return", pos_path, class: "btn btn-secondary" %>
+    </div>
+
+</div>
