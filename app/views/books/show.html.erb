@@ -8,7 +8,7 @@
             <%= @book.title %>
             </h4>
 
-            <p> <%= image_tag @book.image if @book.image.attached? %> </p>
+            <p> <%= image_tag @book.image, size: "300x450" if @book.image.attached? %> </p>
 
             <p>
                 <strong>Author:</strong>
