@@ -9,9 +9,14 @@ class SearchController < ApplicationController
       unless terms[:isbn].blank?
         @results = Book.where(isbn: terms[:isbn].strip)
       else
+        # Note: Also catches cases where all vars are empty
+        # Create case insensitive query
+        result = Book.arel_table
         @results = Book.all
-        @results = @results.where("title LIKE ?", "%#{terms[:title]}%") unless terms[:title].blank?
-        @results = @results.where("author LIKE ?", "%#{terms[:author]}%") unless terms[:author].blank?
+        @results = @results.where(result[:title].matches "%#{terms[:title]}%") unless terms[:title].blank?
+        @results = @results.where(result[:author].matches "%#{terms[:author]}%") unless terms[:author].blank?
+        #@results = @results.where("title LIKE ?", "%#{terms[:title]}%") unless terms[:title].blank?
+        #@results = @results.where("author LIKE ?", "%#{terms[:author]}%") unless terms[:author].blank?
       end
     else
       @results = Book.all
