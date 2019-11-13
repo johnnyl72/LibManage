@@ -23,10 +23,17 @@
             <% if @results.any? %>
                 <% @results.each do |result| %>
                     <li class="list-group-item">
-                        <h5><%= link_to result.title, result %></h5>
-                        <%= content_tag :div, "By: #{result.author}" %>
-                        <%= content_tag :div, "Available: #{result.available}" %>
-                        <%= content_tag :div, "Copies: #{result.copies}" %>
+                        <div class="row">
+                            <div class="col-2">
+                                <%= image_tag result.image, class: "search-img" if result.image.attached? %>
+                            </div>
+                            <div class="col">
+                                <h5><%= link_to result.title, result %></h5>
+                                <%= content_tag :div, "By: #{result.author}" %>
+                                <%= content_tag :div, "Available: #{result.available}" %>
+                                <%= content_tag :div, "Copies: #{result.copies}" %>
+                            </div>
+                        </div>
                     </li>
                 <% end %>
             <% else %>
