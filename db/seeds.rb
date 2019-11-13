@@ -48,7 +48,7 @@ book_list = [
 ]
 
 book_list.each do |title, author|
-  book = Book.create(title: title, author: author, isbn: (rand(9999999999).to_s))
+  book = Book.create(title: title, author: author, isbn: ("%010d" % rand(9999999999)))
   rand(10).times do |i|
     item = book.book_items.create()
     if rand(10) > 5

@@ -8,6 +8,10 @@ class BookItem < ApplicationRecord
   after_save :update_avail
   after_destroy :update_avail
 
+  def id_f
+    "%06d" % id
+  end
+
   private
   def update_avail
     self.book.available = self.book.book_items.available.count

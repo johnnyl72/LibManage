@@ -1,9 +1,28 @@
-<div class="card">
-    <%= form_with url: shelving_path do |form| %>
-        <div>
-            <%= form.label :books, "BookItemIds" %>
-            <%= form.text_field :books %>
+<% if flash[:notice] %>
+    <div class="alert alert-primary">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+<div class="row">
+    <div class="col-8">
+        <h2>Shelving</h2>
+        <div class="card">
+            <div class="card-body">
+                <%= form_with url: shelving_path do |form| %>
+                    <div class="form-group">
+                        <%= form.label :books, "Item IDs" %>
+                        <%= form.text_area :books, class: "form-control", placeholder: "<book> <book> <book>" %>
+                    </div>
+                    <%= form.submit "Submit", class: "btn btn-primary" %>
+                <% end %>
+            </div>
         </div>
-        <%= form.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
+    </div>
+    <div class="col-4">
+        <h4>Help</h4>
+        <p>
+            Input the books that have been shelved here. You can input multiple books by putting space between the IDs. Only use this form after the books have been marked as returned <%= link_to "here", returns_path %>.
+        </p>
+        <%= link_to "Return", pos_path, class: "btn btn-secondary" %>
+    </div>
 </div>
