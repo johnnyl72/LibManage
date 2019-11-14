@@ -4,6 +4,21 @@
         <p class="lead">Send news to subscribers</p>
     </div>
 </div>
-
-<%= render 'posts/form' %>
+<div class="row">
+    <div class="col-8">
+        <h3>Create News Post:</h3>
+        <%= render 'posts/form' %>
+    </div>
+    <div class="col-4">
+        <h3>Recent News</h3>
+        <% Post.all.limit(3).order(created_at: :desc).each do |post| %>
+            <div class="media mb-2">
+                <div class="media-body">
+                    <h5 class="mt-0"><%= link_to post.created_at.strftime("%x %X"), post %></h5>
+                    <%= post.content.truncate(80) %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 <br />
