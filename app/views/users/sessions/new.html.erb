@@ -16,17 +16,19 @@
 				<%= f.label :password %><br />
 				<%= f.password_field :password, autocomplete: "current-password", class:"form-control"  %>
 			</div>
+			<br>
+			<div class="actions">
+				<%= f.submit "Log in", class:"btn btn-info btn-lg btn-block"%>
+			</div>
 
 			<% if devise_mapping.rememberable? %>
 			<div class="custom-control custom-checkbox my-2">
 				<%= f.check_box :remember_me, class: "custom-control-input" %>
 				<%= f.label :remember_me, class: "custom-control-label" %>
 			</div>
+
 			<% end %>
 
-			<div class="actions">
-				<%= f.submit "Log in", class:"btn btn-info btn-lg btn-block"%>
-			</div>
 			<% end %>
 
 			<%= render "users/shared/links" %>

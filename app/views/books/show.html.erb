@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class = "continer">
+<div class = "container">
     <div class = "row">
         <div class = "col">
             <h4 style="padding: 30px 0px 15px 0px">
@@ -56,15 +56,11 @@
                             <% end %>
                         </tr>
                     <% end %>
-                    <% if @is_admin %>
-                        <tr>
-                            <th colspan="0">
-                                <%= button_to "Create new item", { controller: 'book_items', method: 'create', book_item: { book_id: @book.id } }, class: "btn btn-sm btn-primary" %>
-                            </th>
-                        </tr>
-                    <% end %>
                 </tbody>
                 </table>
+                <% if @is_admin %>
+                  <%= button_to "Create new item", { controller: 'book_items', method: 'create', book_item: { book_id: @book.id } }, class: "btn btn-sm btn-primary" %>
+                <% end %>
         </div>
     </div>
 </div>
